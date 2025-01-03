@@ -2,7 +2,7 @@
 #include <cstdio>
 #include <stdexcept>
 
-namespace observer
+namespace demo
 {
 
 class formatted_error final : public std::exception {

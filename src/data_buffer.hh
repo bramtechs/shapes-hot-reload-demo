@@ -6,7 +6,7 @@
 #include <string_view>
 #include <vector>
 
-namespace observer {
+namespace demo {
 /**
  * Shared buffer of raw data.
  */
