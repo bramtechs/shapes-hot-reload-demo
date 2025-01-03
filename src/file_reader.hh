@@ -11,7 +11,7 @@
 
 #include <string>
 
-namespace observer {
+namespace demo {
 
 class DataBuffer;
 class IFileReader {

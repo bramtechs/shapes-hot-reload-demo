@@ -1,12 +1,13 @@
 #include "file_reader.hh"
 #include "file_reloader.hh"
 #include "local_file_reader.hh"
+#include "shape_importer.hh"
 
 #include <iostream>
 #include <memory>
 #include <raylib.h>
 
-namespace observer {
+namespace demo {
 
 class DemoScene final {
 
@@ -15,7 +16,7 @@ public:
         : mFileReader(std::make_unique<LocalFileReader>())
         , mFileReloader(std::make_unique<FileReloader>(*mFileReader))
     {
-        InitWindow(width, height, "raylib [core] example - basic window");
+        InitWindow(width, height, "File Reloader Observer Demo");
         SetTargetFPS(60);
     }
 
@@ -48,7 +49,7 @@ private:
 
 int main(int arc, char** argv)
 {
-    observer::DemoScene scene(1280, 720);
+    demo::DemoScene scene(1280, 720);
     while (!scene.shouldClose()) {
         scene.render();
     }

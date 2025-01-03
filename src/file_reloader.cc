@@ -9,7 +9,7 @@
 #include "file_reloader.hh"
 #include "file_reader.hh"
 
-namespace observer
+namespace demo
 {
 
 FileReloader::FileReloader(IFileReader& reader, long pollIntervalMillis)

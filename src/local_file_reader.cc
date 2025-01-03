@@ -5,7 +5,7 @@
 #include <filesystem>
 #include <fstream>
 
-namespace observer {
+namespace demo {
 
 DataBuffer LocalFileReader::readFile(const std::string& filePath)
 {

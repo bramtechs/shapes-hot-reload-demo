@@ -3,7 +3,7 @@
 
 #include <unordered_map>
 
-namespace observer {
+namespace demo {
 
 class LocalFileReader final : public IFileReader {
 public:

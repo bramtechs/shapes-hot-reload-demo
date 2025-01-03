@@ -18,7 +18,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace observer {
+namespace demo {
 
 class IFileReader;
 
