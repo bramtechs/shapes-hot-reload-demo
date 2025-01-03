@@ -12,7 +12,21 @@ add_executable(${PROJECT_NAME}
   src/file_reloader.cc
   src/local_file_reader.cc
   src/local_file_reader.hh
+  src/shape.hh
+  src/rectangle_shape.hh
+  src/rectangle_shape.cc
+  src/circle_shape.hh
+  src/circle_shape.cc
+  src/shape_importer.cc
+  src/shape_importer_error.hh
+  src/shape_importer_state.hh
+  src/shape_importer_closed_state.cc
+  src/shape_importer_open_state.cc
   src/demo.cc
+)
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+  src/vendor
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
