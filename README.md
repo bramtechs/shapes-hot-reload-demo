@@ -1,4 +1,4 @@
-# File Reloader Observer Demo
+# Shapes Hot Reload Demo
 
 Quick visual demo of config file hot-reloading, implemented with the observer and state pattern. 
 
