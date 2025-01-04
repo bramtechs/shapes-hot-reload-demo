@@ -1,5 +1,6 @@
 #pragma once
 #include "shape_importer_state.hh"
+#include "utils.hh"
 
 #include <memory>
 #include <string>
@@ -24,6 +25,9 @@ public:
 private:
     std::string mFilePath;
     std::unique_ptr<IShapeImporterState> mState;
+
+public:
+    GETTER(FilePath)
 };
 
 }
