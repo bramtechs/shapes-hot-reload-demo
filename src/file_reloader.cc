@@ -26,7 +26,7 @@ void FileReloader::trackFile(const std::string& fileName)
     }
 }
 
-void FileReloader::update(float delta)
+void FileReloader::poll()
 {
     std::lock_guard<std::mutex> guard(mQueuedChangesMutex);
 

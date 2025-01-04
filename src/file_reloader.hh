@@ -34,7 +34,7 @@ public:
 
     virtual void trackFile(const std::string& fileName) = 0;
 
-    virtual void update(float delta) = 0;
+    virtual void poll() = 0;
 
     /// Registers a listener that triggers with the name of the file reloaded.
     virtual void registerReloadListener(IFileReloaderListener& listener) = 0;
@@ -46,7 +46,7 @@ public:
 
     void trackFile(const std::string& fileName) override;
 
-    void update(float delta) override;
+    void poll() override;
 
     /// Registers a listener that triggers with the name of the file reloaded.
     void registerReloadListener(IFileReloaderListener& listener) override
