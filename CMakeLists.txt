@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.20)
 project(shapes-hot-reload)
 
-add_subdirectory(../multini ${CMAKE_BINARY_DIR}/multini)
+add_subdirectory(src/vendor/multini)
 add_subdirectory(src/vendor/raylib)
 
 set(CMAKE_CXX_STANDARD 23)

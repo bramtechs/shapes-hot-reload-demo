@@ -39,7 +39,6 @@ void FileReloader::poll()
 
 void FileReloader::threadedChecker(std::stop_token stopToken, long pollIntervalMillis)
 {
-    // TODO: Deadlocks sometimes. Ehh won't fix as it is debug only code.
     using namespace std::chrono_literals;
 
     while (!stopToken.stop_requested()) {
@@ -48,7 +47,7 @@ void FileReloader::threadedChecker(std::stop_token stopToken, long pollIntervalM
             for (auto& [fname, lastWrite] : mWriteTimes) {
                 std::size_t updateTime = mReader.getFileUpdateTime(fname);
                 if (lastWrite != updateTime) {
-                    printf("Script %s changed, requesting hot-reload: %zu != %zu", fname.c_str(), lastWrite, updateTime);
+                    printf("Script %s changed, requesting hot-reload: %zu != %zu\n", fname.c_str(), lastWrite, updateTime);
                     std::lock_guard<std::mutex> guard2(mQueuedChangesMutex);
                     mQueuedChanges.emplace_back(fname);
                     lastWrite = updateTime;

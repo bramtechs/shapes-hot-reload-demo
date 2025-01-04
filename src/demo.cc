@@ -21,6 +21,7 @@ public:
         SetTargetFPS(60);
 
         mFileReloader->trackFile(shapesFile);
+        mFileReloader->registerReloadListener(*this);
         reloadShapes();
     }
 
@@ -32,7 +33,7 @@ public:
     void render()
     {
         // poll file reloader for new events
-        mFileReloader.poll();
+        mFileReloader->poll();
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
@@ -41,7 +42,7 @@ public:
             shape->draw();
         }
 
-        DrawText("Change shapes.ini to modify the shapes!", 50, 50, 36, GRAY);
+        DrawText("Edit shapes.ini to modify the shapes!", 50, 50, 36, GRAY);
 
         EndDrawing();
     }
@@ -53,15 +54,13 @@ public:
 
     void onFileReloaded(const std::string& file)
     {
-        if (file == "shapes.ini") {
-            reloadShapes();
-        }
+        reloadShapes();
     }
 
 private:
     void reloadShapes()
     {
-        std::cout << "Reloading shapes.ini" << std::endl;
+        std::cout << "Reloading shapes.ini\n";
         mImporter.open();
         mShapes = mImporter.readShapes();
         mImporter.close();

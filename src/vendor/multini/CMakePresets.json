@@ -1,0 +1,27 @@
+﻿{
+  "version": 8,
+  "configurePresets": [
+    {
+      "name": "windows",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build"
+    },
+    {
+      "name": "mac",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "/opt/homebrew/Cellar/llvm/19.1.6/bin/clang++",
+        "CMAKE_C_COMPILER": "/opt/homebrew/Cellar/llvm/19.1.6/bin/clang",
+        "CMAKE_LINKER": "/opt/homebrew/opt/llvm/19.1.6/bin/ld.lld",
+        "CMAKE_LIBRARY_PATH": "/opt/homebrew/opt/llvm@19/lib",
+        "CMAKE_INCLUDE_PATH": "/opt/homebrew/opt/llvm@19/include"
+      }
+    },
+    {
+      "name": "linux",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build"
+    }
+  ]
+}

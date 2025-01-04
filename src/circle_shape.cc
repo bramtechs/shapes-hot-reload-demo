@@ -12,7 +12,7 @@ CircleShape::CircleShape(int x, int y, int radius, Color color)
 
 void CircleShape::draw()
 {
-    DrawCircle(mX, mY, mRadius, mColor);
+    DrawCircle(mX, mY, static_cast<float>(mRadius), mColor);
 }
 
 }
