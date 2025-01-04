@@ -1,13 +1,18 @@
 #include "circle_shape.hh"
 
-#include <raylib.h>
+namespace demo {
 
-namespace demo
-{
-
-void CircleShape::draw()
+CircleShape::CircleShape(int x, int y, int radius, Color color)
+    : mX(x)
+    , mY(y)
+    , mRadius(radius)
+    , mColor(color)
 {
 }
 
+void CircleShape::draw()
+{
+    DrawCircle(mX, mY, mRadius, mColor);
+}
 
 }
