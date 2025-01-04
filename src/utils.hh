@@ -1,10 +1,14 @@
 #pragma once
+#include <utility>
+
+#define GETTER(X)                                                \
+    [[nodiscard]] auto get##X() const noexcept -> decltype(m##X) \
+    {                                                            \
+        return m##X;                                             \
+    }
 
 #define GETTER_SETTER(X)                                                       \
-    [[nodiscard]] auto get##X() const noexcept -> decltype(m##X)               \
-    {                                                                          \
-        return m##X;                                                           \
-    }                                                                          \
+    GETTER(X)                                                                  \
     void set##X(const decltype(m##X)& it)                                      \
     {                                                                          \
         m##X = it;                                                             \
