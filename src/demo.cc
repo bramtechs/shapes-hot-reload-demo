@@ -17,7 +17,7 @@ public:
         , mFileReader(std::make_unique<LocalFileReader>())
         , mFileReloader(std::make_unique<FileReloader>(*mFileReader))
     {
-        InitWindow(width, height, "File Reloader Observer Demo");
+        InitWindow(width, height, "Shapes Hot-Reload Demo");
         SetTargetFPS(60);
 
         mFileReloader->trackFile(shapesFile);

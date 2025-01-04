@@ -1,11 +1,3 @@
-/*
- * Copyright (c) 2024. Doomhowl Interactive - All Rights Reserved
- * Redistribution and use in source and binary forms, with or without modification are not permitted
- * without the prior written permission of Doomhowl Interactive.
- *
- * File created on: 15-11-2024
- */
-
 #pragma once
 #include <cassert>
 #include <chrono>

@@ -1,4 +1,3 @@
-#pragma once
 #include "formatted_error.hh"
 #include "shape_factory.hh"
 #include "shape_importer.hh"
