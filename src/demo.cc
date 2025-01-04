@@ -9,15 +9,19 @@
 
 namespace demo {
 
-class DemoScene final {
+class DemoScene final : public IFileReloaderListener {
 
 public:
-    DemoScene(int width, int height)
-        : mFileReader(std::make_unique<LocalFileReader>())
+    DemoScene(int width, int height, const std::string& shapesFile = "shapes.ini")
+        : mImporter(shapesFile)
+        , mFileReader(std::make_unique<LocalFileReader>())
         , mFileReloader(std::make_unique<FileReloader>(*mFileReader))
     {
         InitWindow(width, height, "File Reloader Observer Demo");
         SetTargetFPS(60);
+
+        mFileReloader->trackFile(shapesFile);
+        reloadShapes();
     }
 
     ~DemoScene()
@@ -27,8 +31,15 @@ public:
 
     void render()
     {
+        // poll file reloader for new events
+        mFileReloader.poll();
+
         BeginDrawing();
         ClearBackground(RAYWHITE);
+
+        for (const std::unique_ptr<IShape>& shape : mShapes) {
+            shape->draw();
+        }
 
         DrawText("Change shapes.ini to modify the shapes!", 50, 50, 36, GRAY);
 
@@ -40,7 +51,24 @@ public:
         return WindowShouldClose();
     }
 
+    void onFileReloaded(const std::string& file)
+    {
+        if (file == "shapes.ini") {
+            reloadShapes();
+        }
+    }
+
 private:
+    void reloadShapes()
+    {
+        std::cout << "Reloading shapes.ini" << std::endl;
+        mImporter.open();
+        mShapes = mImporter.readShapes();
+        mImporter.close();
+    }
+
+    ShapeImporter mImporter;
+    std::vector<std::unique_ptr<IShape>> mShapes;
     std::unique_ptr<IFileReader> mFileReader;
     std::unique_ptr<IFileReloader> mFileReloader;
 };
