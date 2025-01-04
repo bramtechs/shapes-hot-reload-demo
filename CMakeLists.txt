@@ -26,6 +26,8 @@ add_executable(${PROJECT_NAME}
   src/shape_importer_open_state.cc
   src/shape_factory.hh
   src/shape_factory.cc
+  src/color_resolver.hh
+  src/color_resolver.cc
   src/demo.cc
 )
 

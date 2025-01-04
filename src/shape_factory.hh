@@ -2,6 +2,7 @@
 #include <functional>
 #include <map>
 #include <memory>
+#include <raylib.h>
 #include <stdexcept>
 #include <string>
 
@@ -24,8 +25,10 @@ public:
     std::unique_ptr<IShape> buildShape() const;
 
 private:
-    RectangleShape* createRectangle() const;
-    CircleShape* createCircle() const;
+    RectangleShape* createRectangle(Color color) const;
+    CircleShape* createCircle(Color color) const;
+
+    Color resolveColor() const;
 
     std::string mShapeType;
     const ShapeINIEntry& mConfig;
