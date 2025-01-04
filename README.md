@@ -1,6 +1,6 @@
 # Shapes Hot Reload Demo
 
-Quick visual demo of config file hot-reloading, implemented with the observer and state pattern. 
+Quick visual demo of config file hot-reloading, implemented with the **observer, state** and **factory** pattern. 
 
 File loading module extracted from my work-in-progress proprietary
 game engine. Demo presented with the [Raylib](https://www.raylib.com/)
