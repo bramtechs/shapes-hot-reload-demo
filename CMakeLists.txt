@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.12)
 project(shapes-hot-reload)
 
+add_subdirectory(../multini ${CMAKE_BINARY_DIR}/multini)
 add_subdirectory(src/vendor/raylib)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 add_executable(${PROJECT_NAME}
@@ -13,6 +14,7 @@ add_executable(${PROJECT_NAME}
   src/local_file_reader.cc
   src/local_file_reader.hh
   src/shape.hh
+  src/utils.hh
   src/rectangle_shape.hh
   src/rectangle_shape.cc
   src/circle_shape.hh
@@ -22,6 +24,8 @@ add_executable(${PROJECT_NAME}
   src/shape_importer_state.hh
   src/shape_importer_closed_state.cc
   src/shape_importer_open_state.cc
+  src/shape_builder.hh
+  src/shape_builder.cc
   src/demo.cc
 )
 
@@ -31,6 +35,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
   raylib
+  multini
 )
 
 if (WIN32)
