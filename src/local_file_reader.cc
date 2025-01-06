@@ -11,7 +11,7 @@ DataBuffer LocalFileReader::readFile(const std::string& filePath)
 {
     std::ifstream file(filePath, std::ios::binary);
     if (!file.is_open()) {
-        throw formatted_error("Failed to open file: {}", filePath.c_str());
+        throw formatted_error("Failed to open file: %s", filePath.c_str());
     }
     file.seekg(0, std::ios::end);
     std::streampos size = file.tellg();
